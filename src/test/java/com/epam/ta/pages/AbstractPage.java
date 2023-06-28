@@ -12,10 +12,6 @@ public class AbstractPage {
         this.driver = driver;
     }
 
-    public WebDriver getDriver() {
-        return this.driver;
-    }
-
     public boolean isElementPresent(By locator) {
         return driver.findElements(locator).size() > 0;
     }
