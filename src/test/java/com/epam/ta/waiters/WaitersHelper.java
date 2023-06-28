@@ -5,10 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class WaitersHelper {
 
-    private static long TIMEOUT_IN_SECONDS = 10;
+    private static Duration TIMEOUT_IN_SECONDS = Duration.ofSeconds(10);
 
     public static WebElement waitForVisibilityOf(WebDriver driver, WebElement element) {
         return new WebDriverWait(driver, TIMEOUT_IN_SECONDS).until(ExpectedConditions
@@ -20,6 +21,9 @@ public class WaitersHelper {
                 .presenceOfElementLocated(By.xpath(xpathLocator)));
     }
 
+    public static WebElement waitForElementToBeClickable(WebDriver driver, WebElement element) {
+        return new WebDriverWait(driver, TIMEOUT_IN_SECONDS).until(ExpectedConditions
+                .elementToBeClickable(element));
+    }
 
 }
-
