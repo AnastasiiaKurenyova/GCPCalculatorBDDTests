@@ -4,6 +4,7 @@ import com.epam.ta.model.ComputeEngineData;
 import com.epam.ta.model.enums.*;
 import com.epam.ta.pages.AbstractPage;
 import com.epam.ta.pages.EstimationPage;
+import com.epam.ta.service.TestDataReader;
 import com.epam.ta.waiters.WaitersHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -47,7 +48,7 @@ public class ComputeEngineCalcPage extends AbstractPage {
     }
 
     public ComputeEngineCalcPage openPage() {
-        driver.get(HOMEPAGE_URL);
+        driver.get(TestDataReader.getTestData(HOMEPAGE_URL));
         return this;
     }
 
