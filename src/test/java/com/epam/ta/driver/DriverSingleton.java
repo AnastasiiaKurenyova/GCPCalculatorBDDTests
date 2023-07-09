@@ -15,7 +15,7 @@ public class DriverSingleton {
     public static WebDriver getDriver() {
         if (null == driver) {
             LocalWebDriverFactory localWebDriverFactory = new LocalWebDriverFactory();
-            driver = localWebDriverFactory.getDriver(System.getProperty("browser"));
+            driver = localWebDriverFactory.getDriver(WebDriverType.valueOf(System.getProperty("browser").toUpperCase()));
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().maximize();
         }

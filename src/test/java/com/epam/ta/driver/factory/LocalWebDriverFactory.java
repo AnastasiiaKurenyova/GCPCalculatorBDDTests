@@ -1,5 +1,6 @@
 package com.epam.ta.driver.factory;
 
+import com.epam.ta.driver.WebDriverType;
 import org.openqa.selenium.WebDriver;
 
 public class LocalWebDriverFactory implements WebDriverFactory {
@@ -8,21 +9,12 @@ public class LocalWebDriverFactory implements WebDriverFactory {
     private final WebDriverFactory edgeDriverFactory = new EdgeDriverFactory();
 
     @Override
-    public WebDriver getDriver(String webDriverType) {
+    public WebDriver getDriver(WebDriverType webDriverType) {
         WebDriverFactory webDriverFactory;
         switch (webDriverType) {
-            case "firefox": {
-                webDriverFactory = firefoxDriverFactory;
-                break;
-            }
-            case "edge": {
-                webDriverFactory = edgeDriverFactory;
-                break;
-            }
-            default: {
-                webDriverFactory = chromeDriverFactory;
-                break;
-            }
+            case FIREFOX -> webDriverFactory = firefoxDriverFactory;
+            case EDGE -> webDriverFactory = edgeDriverFactory;
+            default -> webDriverFactory = chromeDriverFactory;
         }
         return webDriverFactory.getDriver(webDriverType);
     }
