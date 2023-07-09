@@ -112,9 +112,7 @@ public class ComputeEngineCalcPage extends AbstractPage {
     }
 
     public ComputeEngineCalcPage setBootDiskSize(int bootDiskSize) {
-        WaitersHelper.waitForVisibilityOf(driver, bootDiskSizeInput).click();
-        WaitersHelper.waitForVisibilityOf(driver,
-                driver.findElement(By.xpath(getOptionLocator(Integer.toString(bootDiskSize))))).click();
+        WaitersHelper.waitForVisibilityOf(driver, bootDiskSizeInput).sendKeys(Integer.toString(bootDiskSize));
         logger.info("Added [" + bootDiskSize + "] GiB Boot Disk Size");
         return this;
     }
