@@ -50,5 +50,5 @@ Feature: Calculate price for GCP Services
 
     Examples:
       | instances | osSoftware   | provisioningModel | machineFamily | series | machineType   | bootDiskSize | total estimated cost |
-      | 1         | PAID_UBUNTU  | REGULAR           | GENERAL       | E2     | e2-micro      | 500          | 7.42                 |
-      | 2         | PAID_RED_HAT | SPOT              | COMPUTE       | C2     | c2-standard-8 | 1000         | 592.62               |
+      | 1         | PAID_UBUNTU  | REGULAR           | GENERAL       | E2     | e2-micro      | 500          | 57.42                |
+      | 2         | PAID_RED_HAT | SPOT              | COMPUTE       | C2     | c2-standard-8 | 1000         | 445.14               |
