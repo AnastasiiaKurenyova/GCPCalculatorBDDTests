@@ -4,9 +4,11 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        plugin = {"pretty", "com.epam.reportportal.cucumber.StepReporter"},
+        plugin = {"pretty",
+                "com.epam.reportportal.cucumber.StepReporter",
+                "json:target/reports/json/reports.json"},
         features = {"src/test/resources/features"},
-        glue = {"com.epam.ta.steps"},
+        glue = {"com.epam.ta.steps", "com.epam.ta.hooks"},
         tags = ""
 )
 
