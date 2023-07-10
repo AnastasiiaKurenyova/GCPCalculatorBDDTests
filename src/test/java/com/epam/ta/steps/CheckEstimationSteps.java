@@ -6,7 +6,8 @@ import com.epam.ta.pages.calculator.ComputeEngineCalcPage;
 import com.epam.ta.pages.EstimationPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.testng.Assert;
+import org.junit.jupiter.api.Assertions;
+
 
 public class CheckEstimationSteps extends AbstractPage {
 
@@ -19,10 +20,10 @@ public class CheckEstimationSteps extends AbstractPage {
         new ComputeEngineCalcPage(driver).addToEstimate();
     }
 
-    @Then("I should get the total estimated cost {}$ on Estimation page")
+    @Then("I should get the total estimated cost {double}$ on Estimation page")
     public void iShouldGetTheTotalEstimatedCost(double expectedCost) {
         double actualCost = new EstimationPage(driver).getTotalEstimationValue();
-        Assert.assertEquals(actualCost, expectedCost, "Total estimated cost value is not expected");
+        Assertions.assertEquals(actualCost, expectedCost, "Total estimated cost value is not expected");
     }
 
 }
