@@ -4,6 +4,7 @@ Feature: Calculate price for GCP Services
     Given I navigated to GCP Calculator page
 
 
+  @Smoke
   Scenario Outline: Calculate price for Compute Engine service using only required fields
     Given Compute Engine service is checked on Service Tab
     When I fill Number of instances field with <instances>
@@ -15,6 +16,7 @@ Feature: Calculate price for GCP Services
       | 1         | 48.92                |
 
 
+  @Regression
   Scenario Outline: Calculate price for GKE Standard service using only required fields
     Given GKE Standard service is checked on Service Tab
     When I fill Total number of nodes in Node Pool field with <nodes>
@@ -26,6 +28,7 @@ Feature: Calculate price for GCP Services
       | 6     | 145.63               |
 
 
+  @Regression
   Scenario Outline: Calculate price for Compute Engine and GKE Standard service using only required fields
     Given Compute Engine service is checked on Service Tab
     When I fill Number of instances field with <instances>
@@ -37,9 +40,10 @@ Feature: Calculate price for GCP Services
 
     Examples:
       | instances | nodes | total estimated cost |
-      | 1         | 6     | 194.55               |
+      | 1         | 6     | 194.55                |
 
 
+  @Regression
   Scenario Outline: Calculate price for Compute Engine service
     Given Compute Engine service is checked on Service Tab
     When I fill fields for Compute Engine service to proceed with parameters:
@@ -49,6 +53,6 @@ Feature: Calculate price for GCP Services
     Then I should get the total estimated cost <total estimated cost>$ on Estimation page
 
     Examples:
-      | instances | osSoftware   | provisioningModel | machineFamily | series | machineType   | bootDiskSize | total estimated cost |
-      | 1         | PAID_UBUNTU  | REGULAR           | GENERAL       | E2     | e2-micro      | 500          | 57.42                |
-      | 2         | PAID_RED_HAT | SPOT              | COMPUTE       | C2     | c2-standard-8 | 1000         | 445.14               |
+      | instances | osSoftware  | provisioningModel | machineFamily | series | machineType   | bootDiskSize | total estimated cost |
+      | 1         | PAID_UBUNTU | REGULAR           | GENERAL       | E2     | e2-micro      | 500          | 57.42                |
+      | 2         | FREE_DEBIAN | SPOT              | COMPUTE       | C2     | c2-standard-8 | 1000         | 255.34               |
