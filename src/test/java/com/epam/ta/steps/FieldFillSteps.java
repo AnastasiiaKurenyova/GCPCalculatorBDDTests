@@ -18,12 +18,12 @@ public class FieldFillSteps extends AbstractPage {
         super(DriverSingleton.getDriver());
     }
 
-    @When("I fill Number of instances field with {}")
+    @When("I fill Number of instances field with {int}")
     public void iFillNumberOfInstancesFieldWith(int instances){
         new ComputeEngineCalcPage(driver).setInstances(instances);
     }
 
-    @When("I fill Total number of nodes in Node Pool field with {}")
+    @When("I fill Total number of nodes in Node Pool field with {int}")
     public void iFillTotalNumberOfNodesInNodePoolFieldWith(int nodes) {
         new GKEStandardCalcPage(driver).setNodes(nodes);
     }
