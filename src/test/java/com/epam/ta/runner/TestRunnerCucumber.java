@@ -1,19 +1,17 @@
 package com.epam.ta.runner;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
+import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
+import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
-@CucumberOptions(
-        plugin = {"pretty",
-                "com.epam.reportportal.cucumber.StepReporter",
-                "json:target/reports/json/reports.json",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-        },
-        features = {"src/test/resources/features"},
-        glue = {"com.epam.ta.steps", "com.epam.ta.hooks"},
-        tags = ""
-)
+import org.junit.platform.suite.api.*;
 
-public class TestRunnerCucumber extends AbstractTestNGCucumberTests {
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("features")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.epam.ta.steps")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value="pretty,com.epam.reportportal.cucumber.StepReporter,json:target/reports/json/reports.json,com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:")
+
+public class TestRunnerCucumber {
 
 }

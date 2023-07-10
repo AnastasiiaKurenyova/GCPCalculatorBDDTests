@@ -1,4 +1,4 @@
-package com.epam.ta.hooks;
+package com.epam.ta.steps;
 
 import com.epam.ta.driver.DriverSingleton;
 import io.cucumber.java.After;
